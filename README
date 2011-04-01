@@ -3,9 +3,10 @@ INSTRUCCIONES
 1) Copia ADpassword.conf en /home/tu_usuario/.ADpassword
    (atención al ".")
 
-2) Edita el fichero .ADpassword y rellena los datos
+2) Edita el fichero .ADpassword y rellena los datos de conexión
+   (opcionalmente puedes usar el fichero .smbcredentials para guardar username y password)
 
-3) Coloca ADpasswor y ADpassword.ui en otro directorio cualquiera
+3) Coloca ADpassword y ADpassword.ui en otro directorio cualquiera
 
 4) En el escritorio busca el menú /Sistema/Preferencias/Aplicaciones al
 inicio y agrega una nueva para que ejecute ADpassword cada vez que arranque.
