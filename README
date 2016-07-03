@@ -1,14 +1,13 @@
-INSTRUCCIONES
 
-1) Copia ADpassword.conf en /home/tu_usuario/.ADpassword
-   (atención al ".")
+A password change reminder for linux desktops
 
-2) Edita el fichero .ADpassword y rellena los datos de conexión
-   (opcionalmente puedes usar el fichero .smbcredentials para guardar username y password)
 
-3) Coloca ADpassword y ADpassword.ui en otro directorio cualquiera
 
-4) En el escritorio busca el menú /Sistema/Preferencias/Aplicaciones al
-inicio y agrega una nueva para que ejecute ADpassword cada vez que arranque.
+INSTRUCTIONS
 
-5) Listo!
+1) Join your workstation to an Active Directory domain
+
+2) Install ADpassword and run it in every desktop start (check your desktop
+help to learn how to do it)
+
+3) Ready!
