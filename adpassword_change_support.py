@@ -7,24 +7,14 @@
 import pexpect
 import sys
 
-try:
-    from Tkinter import *
-except ImportError:
-    from tkinter import *
-
-try:
-    import ttk
-    py3 = 0
-except ImportError:
-    import tkinter.ttk as ttk
-    py3 = 1
 
 def change_password(current_pwd,new_pwd1,new_pwd2):
+
     if (new_pwd1 != new_pwd2):
         return "Error: passwords do not match"
 
     child = pexpect.spawn('/usr/bin/kpasswd')
-    child.logfile = sys.stdout
+#    child.logfile = sys.stdout
     
     i=child.expect(["[Pp]assword for",pexpect.EOF])
     if i > 0:
@@ -49,15 +39,44 @@ def change_password(current_pwd,new_pwd1,new_pwd2):
     return "OK"
 
 
+try:
+    from Tkinter import *
+except ImportError:
+    from tkinter import *
+
+try:
+    import ttk
+    py3 = 0
+except ImportError:
+    import tkinter.ttk as ttk
+    py3 = 1
+
+
+def set_Tk_var():
+    # These are Tk variables used passed to Tkinter and must be
+    # defined before the widgets using them are created.
+    global old_pwd
+    old_pwd = StringVar()
+
+    global new_pwd1
+    new_pwd1 = StringVar()
+
+    global new_pwd2
+    new_pwd2 = StringVar()
+
+    global message
+    message = StringVar()
+
+
 def bt_cancel_clicked():
-    print('adpassword_change_support.bt_cancel_clicked')
-    print change_password(old_password, new_password1, new_password2)
     sys.exit()
 
 def bt_ok_clicked():
-    print('adpassword_change_support.bt_ok_clicked')
-    
-    sys.stdout.flush()
+    m=change_password(old_pwd.get(), new_pwd1.get(), new_pwd2.get())
+    print m
+    message.set(m)
+    if m == "OK":
+        sys.exit()
 
 def init(top, gui, *args, **kwargs):
     global w, top_level, root

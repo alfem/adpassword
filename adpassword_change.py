@@ -23,6 +23,7 @@ def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
     root = Tk()
+    adpassword_change_support.set_Tk_var()
     top = AD_Password (root)
     adpassword_change_support.init(root, top)
     root.mainloop()
@@ -82,6 +83,8 @@ class AD_Password:
 
         self.TEntry1 = ttk.Entry(top)
         self.TEntry1.place(relx=0.35, rely=0.08, relheight=0.08, relwidth=0.34)
+        self.TEntry1.configure(show="*")
+        self.TEntry1.configure(textvariable=adpassword_change_support.old_pwd)
         self.TEntry1.configure(takefocus="")
         self.TEntry1.configure(cursor="xterm")
 
@@ -94,11 +97,15 @@ class AD_Password:
 
         self.TEntry2 = ttk.Entry(top)
         self.TEntry2.place(relx=0.35, rely=0.21, relheight=0.08, relwidth=0.34)
+        self.TEntry2.configure(show="*")
+        self.TEntry2.configure(textvariable=adpassword_change_support.new_pwd1)
         self.TEntry2.configure(takefocus="")
         self.TEntry2.configure(cursor="xterm")
 
         self.TEntry3 = ttk.Entry(top)
         self.TEntry3.place(relx=0.35, rely=0.33, relheight=0.08, relwidth=0.34)
+        self.TEntry3.configure(show="*")
+        self.TEntry3.configure(textvariable=adpassword_change_support.new_pwd2)
         self.TEntry3.configure(takefocus="")
         self.TEntry3.configure(cursor="xterm")
 
@@ -114,13 +121,14 @@ class AD_Password:
         self.TButton2.configure(takefocus="")
         self.TButton2.configure(text='''Cancel''')
 
-        self.TLabel4 = ttk.Label(top)
-        self.TLabel4.place(relx=0.46, rely=0.54, height=17, width=37)
-        self.TLabel4.configure(background=_bgcolor)
-        self.TLabel4.configure(foreground="#f80000")
-        self.TLabel4.configure(relief=FLAT)
-        self.TLabel4.configure(text='''Tlabel''')
-
+        self.lb_message = ttk.Label(top)
+        self.lb_message.place(relx=0.06, rely=0.54, height=17, width=422)
+        self.lb_message.configure(background=_bgcolor)
+        self.lb_message.configure(foreground="#f80000")
+        self.lb_message.configure(relief=FLAT)
+        self.lb_message.configure(justify=CENTER)
+        self.lb_message.configure(textvariable=adpassword_change_support.message)
+        self.lb_message.configure(width=422)
 
 
 

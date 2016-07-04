@@ -77,7 +77,6 @@ def set_Tk_var(alert):
     lbl_pwd_expiration.set(alert)
 
 def bt_cancel_clicked():
-    print('adpassword_support.bt_cancel_clicked')
     sys.exit()
 
 def bt_chg_pwd_clicked():
