@@ -10,4 +10,10 @@ INSTRUCTIONS
 2) Install ADpassword and run it in every desktop start (check your desktop
 help to learn how to do it)
 
-3) Ready!
+3) Use the following optional parameters:
+
+-d DAYS		to set the number of days ADpassword will show an alert before password expiration (default=5)
+
+-u USERNAME     to impersonate another user when querying Active Directory. ADpassword takes the username from kerberos tickets by default.
+
+4) Ready!
