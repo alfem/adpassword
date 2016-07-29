@@ -32,7 +32,7 @@ def locate_ad_ldap_data():
             break
 
     if (cmd.wait() == 0):
-        print "LDAP Server:", ldap_server
+        print _("LDAP Server:"), ldap_server
         return ldap_server
 
 
@@ -54,7 +54,7 @@ def query_user_password_policy(ldap_server,user):
             break
    
     if (cmd.wait() == 0):
-        print "Password Must Change:", cleardate
+        print _("Password Must Change:"), cleardate
         return password_expiration_datetime
 
 def get_username():

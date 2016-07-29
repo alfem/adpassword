@@ -11,7 +11,7 @@ import sys
 def change_password(current_pwd,new_pwd1,new_pwd2):
 
     if (new_pwd1 != new_pwd2):
-        return "Error: passwords do not match"
+        return _("Error: passwords do not match")
 
     child = pexpect.spawn('/usr/bin/kpasswd')
 #    child.logfile = sys.stdout
@@ -24,17 +24,17 @@ def change_password(current_pwd,new_pwd1,new_pwd2):
     i=child.expect(["Enter new password:", pexpect.EOF])
     print i
     if i > 0:
-        return "Error: wrong old password"
+        return _("Error: wrong old password")
     child.sendline(new_pwd1)
     
     i=child.expect(["Enter it again:",  pexpect.EOF])
     if i > 0:
-        return "Error: wrong new password"
+        return _("Error: wrong new password")
     child.sendline(new_pwd2)
 
     i=child.expect(["Password changed.", "Password change rejected:",  pexpect.EOF])
     if i > 0:
-        return "Error: password rejected"
+        return _("Error: password rejected")
 
     return "OK"
 
