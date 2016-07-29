@@ -46,8 +46,9 @@ def query_user_password_policy(ldap_server,user):
         items=re.search("Password must change Time:\s*(.*)\n", line)
         if items:
             cleardate=items.groups(0)[0]
-            if (cleardate == 'never'):
-                password_expiration_datetime=cleardate
+# If password never expires, just exit.
+            if (cleardate == "never"):
+                sys.exit()
             else:
                 password_expiration_datetime=datetime.datetime.strptime(cleardate, "%a, %d %b %Y %H:%M:%S %Z")
             break
