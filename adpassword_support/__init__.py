@@ -34,6 +34,9 @@ def locate_ad_ldap_data():
     if (cmd.wait() == 0):
         print _("LDAP Server:"), ldap_server
         return ldap_server
+    else:
+        print _("No LDAP configured. Exiting")    
+        sys.exit()
 
 
 def query_user_password_policy(ldap_server,user):
